@@ -1,16 +1,10 @@
 import React from 'react';
-import { Button, SIZE, SHAPE } from "baseui/button";
-import Layout from './Components/Layout';
+import {Layout, Box} from './Components';
 
 const App: React.FC = () => {
   return (
     <Layout>
-      <Button
-        size={SIZE.compact}
-        shape={SHAPE.pill}
-      >
-        Hello
-      </Button>
+     <Box price={200} name={'hello box'} />
     </Layout>
   );
 }

@@ -1,20 +1,25 @@
 import React from 'react';
 import {styled} from 'baseui';
-import {Theme} from 'baseui/theme';
 
 interface WrapperProps {
-    $color?: string,
-    $theme?: Theme
+    $color?: string
 }
-const Wrapper = styled<WrapperProps, 'div'>('div', ({$color }) => ({
-    backgroundColor: $color
+const Wrapper = styled<WrapperProps, 'div'>('div', () => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    width: '100vw',
+    overflow: 'hidden'
 }))
 
 const Layout: React.FC = ({children}) => {
 
     return (
-        <Wrapper $color='red'>
-            {children}
+        <Wrapper>
+            <div>
+                {children}
+            </div>
         </Wrapper>
     );
 };
