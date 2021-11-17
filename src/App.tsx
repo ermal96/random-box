@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Box } from './Components';
+import { Layout, Card } from './Components';
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from './store';
-import { addItem } from './store/cartSlice';
-
-
-interface ProductProps {
-  price: number,
-  name: string,
-  id: number
-}
+import { addItem, deleteItem } from './store/cartSlice';
+import { ProductProps } from './Components/Card';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const [product, setProduct] = useState<ProductProps>({
-    name: 'Sample Product',
-    price: 100,
-    id: 1
+    name: 'IPhone 13Pro MAX',
+    price: 1299,
+    description: `A dramatically more powerful camera system. A display so responsive, every interaction feels new again. The world’s fastest smartphone chip.`,
+    id: 1,
+    items: 0
   });
 
   return (
     <Layout>
-      {console.log(cartItems)}
-      <Box price={product.price} name={product.name} addToCart={() => dispatch(addItem(product))} />
+      <Card 
+        items={cartItems.length}
+        id={product.id} 
+        description={product.description} 
+        price={product.price} 
+        name={product.name} 
+        addToCart={() => dispatch(addItem(product))} 
+      />
     </Layout>
   );
 }
