@@ -1,5 +1,5 @@
 import React from 'react';
-import {styled} from 'baseui';
+import { styled } from 'baseui';
 
 interface WrapperProps {
     $color?: string
@@ -13,13 +13,11 @@ const Wrapper = styled<WrapperProps, 'div'>('div', () => ({
     overflow: 'hidden'
 }))
 
-const Layout: React.FC = ({children}) => {
+const Layout: React.FC = ({ children }) => {
 
     return (
         <Wrapper>
-            <div>
-                {children}
-            </div>
+            {children}
         </Wrapper>
     );
 };
